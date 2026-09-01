@@ -1762,6 +1762,28 @@ html,body{margin:0;padding:0;background:var(--ip-ink);min-height:100%}
 .proy--audi .proy__ti h4 i{font-style:normal;font-weight:500;font-size:.52em;
   letter-spacing:.01em;color:var(--ip-txt3);white-space:nowrap}
 
+/* distintivo de citas presenciales sobre el gráfico */
+.d-chart{position:relative}
+.pres{position:absolute;top:16px;right:22px;z-index:4;cursor:default}
+.pres__b{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;
+  border:1px solid rgba(74,222,128,.45);background:rgba(74,222,128,.11);color:var(--ip-ok);
+  font:600 12.5px/1 var(--ip-body);letter-spacing:.02em;
+  transition:border-color var(--ip-fast) ease,background var(--ip-fast) ease}
+.pres__b svg{width:15px;height:15px;max-height:none}
+.pres__b b{font:700 15px/1 var(--ip-display);font-stretch:106%;color:#fff}
+.pres:hover .pres__b,.pres:focus-visible .pres__b{border-color:rgba(74,222,128,.85);
+  background:rgba(74,222,128,.2)}
+.pres__t{position:absolute;top:calc(100% + 9px);right:0;min-width:190px;
+  padding:13px 16px;border-radius:13px;opacity:0;transform:translateY(-5px);
+  pointer-events:none;background:rgba(14,11,30,.95);
+  border:1px solid rgba(74,222,128,.32);box-shadow:0 16px 40px rgba(0,0,0,.55);
+  transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)}
+.pres:hover .pres__t,.pres:focus-visible .pres__t{opacity:1;transform:translateY(0)}
+.pres__t k{display:block;margin-bottom:9px;font:700 11px/1 var(--ip-body);
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ip-ok)}
+.pres__t em{display:block;padding:5px 0;font-style:normal;
+  font:600 15px/1.2 var(--ip-display);font-stretch:104%;color:#fff}
+
 /* leyenda de series */
 .chart-legend{display:flex;gap:30px;align-items:center;flex-wrap:nowrap}
 .chart-legend .lg{display:flex;align-items:center;gap:11px;white-space:nowrap;
@@ -1993,6 +2015,19 @@ html,body{margin:0;padding:0;background:var(--ip-ink);min-height:100%}
           <!-- ── gráfico + leyenda con filtro ── -->
           <div class="d-main r" style="--d:.22s">
             <div class="ip-card d-chart">
+              <div class="pres" tabindex="0">
+                <span class="pres__b">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11z"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"
+                    fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                  <b>2</b> citas presenciales
+                </span>
+                <span class="pres__t">
+                  <k>Empresas visitadas</k>
+                  <em>Oechsle</em>
+                  <em>Alvcom S.A.C.</em>
+                </span>
+              </div>
               <svg id="chart" viewBox="0 0 1160 430" style="width:100%;height:auto;max-height:none;overflow:visible">
                 <defs>
                   <linearGradient id="ar26" x1="0" y1="0" x2="0" y2="1">
